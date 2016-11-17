@@ -169,22 +169,22 @@ class Validator
         foreach ($this->to_type as $key => $type_data) {
             $value = array_key_exists($key, $this->data) ? $this->data[$key] : "";
             switch ($type_data) {
-                case 'string' : $this->data[$key] = strval($value); break;
-                case 'boolean' : $this->data[$key] = boolval($value); break;
-                case 'integer' : $this->data[$key] = intval($value); break;
-                case 'float' : $this->data[$key] = floatval($value); break;
-                case 'array' : $this->data[$key] = (array) $value; break;
-                case 'object' : $this->data[$key] = (object) $value; break;
+                case 'string' :$this->data[$key] = strval($value); break;
+                case 'boolean' :$this->data[$key] = boolval($value); break;
+                case 'integer' :$this->data[$key] = intval($value); break;
+                case 'float' :$this->data[$key] = floatval($value); break;
+                case 'array' :$this->data[$key] = (array) $value; break;
+                case 'object' :$this->data[$key] = (object) $value; break;
                 default :
                     $div_arr = explode(':', $type_data);
                     switch ($div_arr[0]) {
                         case 'str_array' :
-                            if ($this->toType_str_array($key, $value, $div_arr[1])) {
+                            if (! $this->toType_str_array($key, $value, $div_arr[1])) {
                                 return false;
                             }
                             break;
                         case 'scale' :
-                            if ($this->toType_scale($key, $value, $div_arr[1])) {
+                            if (! $this->toType_scale($key, $value, $div_arr[1])) {
                                 return false;
                             }
                             break;

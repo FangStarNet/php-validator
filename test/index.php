@@ -1,20 +1,17 @@
 <?php
 
 ini_set('date.timezone','Asia/Shanghai');
-require_once "vendor/autoload.php";
 
-use Yunhack\PHPValidator\Validator;
+require_once dirname(dirname(dirname(__DIR__))) . "/autoload.php";
 
-
+use FangStarNet\PHPValidator\Validator;
 
 $data = $_GET;
 
+echo "<pre>";
+
 Validator::make($data, [
-    "tel" => "string|mobile|to_type:scale:4|alias:user_account",
-    "age" => "integer_str|between:18,30|to_type:integer",
-    "vip_no" => "required_without_all:tel,age|length_between:12,32|regex:/^2016-07-29:[a-zA-Z0-9]*$/"
-],[
-    "vip_no.regex" => "错误的vip编号格式！"
+    "tel" => "present|json"
 ]);
 
 if (Validator::has_fails()) {
@@ -24,5 +21,5 @@ if (Validator::has_fails()) {
     echo "参数校验通过(ok)";
 }
 
-echo "<br><pre><br>";
+echo "<br><br>";
 var_dump($data);
