@@ -1,5 +1,5 @@
 {
-    "name": "FangStarNet/php-validator",
+    "name": "fangstar/php-validator",
     "description": "PHP参数校验组件",
     "keywords": ["php validator", "parameters", "laravel" ,"fangstar"],
     "homepage": "https://github.com/FangStarNet/php-validator",
