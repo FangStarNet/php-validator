@@ -39,6 +39,17 @@ class Validator
     }
 
     /**
+     * 初始化数据
+     *
+     * 组件对外提供静态方法，目的是调用方便！而使用make方法则会初始化成员变量
+     */
+    private static function init()
+    {
+        self::$has_fails = false;
+        self::$error_msg = "";
+    }
+
+    /**
      * 定义参数校验规则并进行处理
      *
      * @param   array   $data       参数数组 (外层请使用变量作为参数，而不是方法或final数组)
@@ -47,6 +58,7 @@ class Validator
      */
     public static function make(array &$data, array $rules, array $messages = [])
     {
+        self::init();
         $validator = new Common\Validator($data, $rules, $messages);
         $validator->dissectRuleStr();
 

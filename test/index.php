@@ -8,18 +8,13 @@ use FangStarNet\PHPValidator\Validator;
 
 $data = $_GET;
 
-echo "<pre>";
-
 Validator::make($data, [
-    "tel" => "present|json"
+    "id" => "present|alpha_num|length:32",
+],[
+    "id.length" => "id不合法",
 ]);
-
 if (Validator::has_fails()) {
     echo Validator::error_msg();
-    exit;
 } else {
-    echo "参数校验通过(ok)";
+    echo "参数校验已经通过";
 }
-
-echo "<br><br>";
-var_dump($data);

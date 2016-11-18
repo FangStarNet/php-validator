@@ -417,12 +417,12 @@ class Validator
 
         @$date = date($rule_data, $timestamp);
         if ($date == false) {
-            $this->setMsg_one('timestamp', $parameter_name);
+            $this->setMsg_one('date_format', $parameter_name);
             return false;
         }
 
         if ($date != $value) {
-            $this->setMsg_one('timestamp', $parameter_name);
+            $this->setMsg_one('date_format', $parameter_name);
             return false;
         }
         return true;
