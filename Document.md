@@ -260,31 +260,31 @@ if (Validator::has_fails()) {
 #### same
 　　针对参数的值，必须和指定参数的值一样，比如："p" => "same:a" // 参数p和a的值必须一样
 
-### required_with
+#### required_with
 　　当指定参数中，只要存在一个时，该参数也必须存在，比如："a" => "required_with:b" // 当参数b存在时，参数a也必须存在
 
-### required_with_all
+#### required_with_all
 　　当指定的所有参数都存在时，该参数也必须存在，比如："a" => "required_with_all:b,c" // 当参数b和c都存在时，参数a也必须存在
 
-### required_without
+#### required_without
 　　当指定参数中，只要不存在一个时，该参数必须存在，比如："a" => "required_without:b" // 当参数b不存在时，参数a必须存在
 
-### required_without_all
+#### required_without_all
 　　当指定所有参数都不存在时，该参数必须存在，比如："a" => "required_without_all:b,c" // 当参数b和c都不存在时，参数a必须存在
 
-### file_exists
+#### file_exists
 　　校验指定的文件是否存在，比如："f" => "file_exists"
 
-### file_type_in
+#### file_type_in
 　　校验指定的文件类型，比如："f" => "file_type_in:png" // 文件格式不区分大小写
 
-### file_max
+#### file_max
 　　校验指定的文件大小，不能大于x(MB)，比如："f" => "file_max:0.5" // 最大不能超过0.5MB
 
-### file_min
+#### file_min
 　　校验指定的文件大小，不能小于x(MB)，比如："f" => "file_min:0.1" // 最小不能超过0.1MB
 
-### file_size_between
+#### file_size_between
 　　校验指定的文件大小，必须在指定的区间范围，单位(MB)，比如："f" => "file_size_between:0.1,0.5"
 
 
