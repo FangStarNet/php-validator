@@ -49,6 +49,10 @@ Via Composer
 $ composer require fangstar/php-validator
 ```
 
+将lang文件夹下面的语言包文件，拷贝到和verdor目录同级下的 resources/lang/ 文件夹下。
+
+或者根据自身需求，修改config.php文件的lang配置项
+
 基础用法
 
 ``` php
