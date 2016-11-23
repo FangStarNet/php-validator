@@ -19,6 +19,13 @@ class Validator
     private static $error_msg = "";
 
     /**
+     * 参数校验后被处理过的输入参数
+     *
+     * @var array
+     */
+    private static $data = [];
+
+    /**
      * 参数校验是否不通过
      *
      * @return  bool
@@ -39,6 +46,16 @@ class Validator
     }
 
     /**
+     * 获取被处理过的请求参数
+     *
+     * @return  array
+     */
+    public static function data()
+    {
+        return self::$data;
+    }
+
+    /**
      * 初始化数据
      *
      * 组件对外提供静态方法，目的是调用方便！而使用make方法则会初始化成员变量
@@ -56,7 +73,7 @@ class Validator
      * @param   array   $rules      参数校验规则
      * @param   array   $messages   自定义文案
      */
-    public static function make(array &$data, array $rules, array $messages = [])
+    public static function make(array $data, array $rules, array $messages = [])
     {
         self::init();
         $validator = new Common\Validator($data, $rules, $messages);
@@ -68,6 +85,6 @@ class Validator
         self::$has_fails = $validator->has_fails();
         self::$error_msg = $validator->err_msg();
 
-        $data = $validator->data();
+        self::$data = $validator->data();
     }
 }

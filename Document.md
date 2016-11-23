@@ -302,6 +302,8 @@ if (Validator::has_fails()) {
 　　2.一个严格的程序员往往需要明确变量类型，只有明确了变量类型，才能写得一手好代码
 
 　　基于以上或更多的场景，往往我们希望在参数校验完毕后，转换变量类型，得到我们想要的数组。那么 to_type 就由此而来！
+
+　　Validator::data() 方法返回处理后的参数数组！
 　　
 　　
 ``` php
@@ -311,7 +313,7 @@ Validator::make($data, [
 if (Validator::has_fails()) {
     echo Validator::error_msg();
 } else {
-    var_dump($data);
+    var_dump(Validator::data());
 }
 ```
 
